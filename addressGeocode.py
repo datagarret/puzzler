@@ -29,8 +29,10 @@ rpl_str_dict = {'.':'',
 for sub in rpl_str_dict:
     patient_address['Street1'] = patient_address['Street1'].str.replace(sub,rpl_str_dict[sub])
 #concatenate the address portions to make a full address
-patient_address['Address'] = (patient_address['Street1'].str.strip() + " " + patient_address['City'].str.strip() +
-                              " " + patient_address['Zipcode'].str.strip() + " "+ patient_address['StateGBLCode'])
+patient_address['Address'] = (patient_address['Street1'].str.strip() + " "
+                              + patient_address['City'].str.strip() +
+                              " " + patient_address['Zipcode'].str.strip()
+                              + " "+ patient_address['StateGBLCode'])
 for i in string.punctuation:
     patient_address['Address'] = patient_address['Address'].str.replace(i,'')
 

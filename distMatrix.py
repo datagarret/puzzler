@@ -53,10 +53,10 @@ pt_dmatrix_df = pd.DataFrame.from_dict(pat_dist_time,orient='index')
 #compare all status columns to see if all queries were successful
 status_cols = [i for i in pt_dmatrix_df.columns if 'status' in i]
 pt_dmatrix_df['query_pass'] = pt_dmatrix_df[status_cols].eq(pt_dmatrix_df.loc[:,status_cols[0]],axis=0).all(axis=1)
-<<<<<<< HEAD
 
-pt_dmatrix_df = pd.merge(pt_dmatrix_df,clean_respondent[['Response']],left_index=True,right_on='PatientID')
-=======
+
+pt_dmatrix_df = pd.merge(pt_dmatrix_df,clean_respondent[['Response']],
+                         left_index=True,right_on='PatientID')
+
 pt_dmatrix_df.sort_index(axis=1,inplace=True)
 pt_dmatrix_df.to_csv('transit_dist.csv')
->>>>>>> 409d1a6dbb0712bc5ac804fca8ff2d55291b721e
